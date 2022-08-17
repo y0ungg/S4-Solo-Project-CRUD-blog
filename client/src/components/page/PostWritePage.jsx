@@ -1,40 +1,55 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { Navigate } from "react-router-dom";
 
 const PostWritePage = ({modifyTitle, modifyContent}) => {
   const [title, setTitle] = useState("");
   const [story, setStory] = useState("");
-  // const [id, setId] = useState(null)
+  const [id, setId] = useState(null)
   const navigate = useNavigate();
+  const { postId } = useParams()
 
   useEffect(() => {
     if(modifyTitle !== undefined && modifyContent !== undefined ) {
       setTitle(modifyTitle)
       setStory(modifyContent)
+      setId(postId)
     }
   }, [])
 
   const onSubmitInput = (event) => {
     event.preventDefault();
-    const newPost = {
-      'title': title,
-      'content': story,
-      'comments': []
+    if(modifyTitle !== undefined && modifyContent !== undefined ) {
+      const modifyPost = {
+        'title': title,
+        'content': story
+      }
+      const options = {
+        method: "PATCH",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(modifyPost)
+      }
+      fetch(`http://localhost:3001/post/${id}`, options)
+      .then(res => console.log(res.text()))
+      .catch(error => console.log('error', error))
+      navigate(`/post/${id}`)
     }
-    const options = {
-      method: "POST",
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(newPost)
-    };
-    fetch(`http://localhost:3001/post`, options)
-    .then(res => res.json())
-    // .then(res => {
-    //   // setId(res.id)
-    //   console.log(res)})
-    // .then(result => navigate(`/`))
-    .catch(error => console.log('error', error))
-    navigate('/')
+    else {
+      const newPost = {
+        'title': title,
+        'content': story,
+        'comments': []
+      }
+      const options = {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(newPost)
+      };
+      fetch(`http://localhost:3001/post`, options)
+      .then(res => console.log(res.text()))
+      .catch(error => console.log('error', error))
+      navigate('/')
+    }
     window.location.reload()
   }
 
