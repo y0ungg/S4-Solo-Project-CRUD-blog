@@ -1,0 +1,84 @@
+{
+  "post": [
+    {
+      "id": 1,
+      "title": "7월 일기",
+      "content": "벌써 섹션 3가 끝났다...\n내일 섹션 3 마무리 회고까지 쓰면 진짜 섹션 4 시작이다~~",
+      "img": "https://cdn.pixabay.com/photo/2022/06/20/07/32/dirt-road-7273240__340.jpg",
+      "comments": [
+        {
+          "id": 1,
+          "content": "잘 보고 갑니다😄"
+        },
+        {
+          "id": 2,
+          "content": "퍼가용"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "[React] Redux",
+      "content": "Redux: 상태관리 라이브러리 \n전역 상태 저장소 store을 제공한다.\n단방향 데이터 흐름\\nAction -> Dispatch -> Reducer -> Store\\n1. 상태 변경 이벤트가 발생하면,\n2. 변경될 상태에 대한 정보가 담긴 action 객체가 생성된다.\n3. action 객체는 dispatch 함수의 인자로 전달된다.\n4. dispatch 함수는 action 객체를 reducer 함수로 전달한다.\n 5. reducer 함수는 action 객체의 값을 확인하고, 전역 상태 저장소 store의 상태를 변경한다.\n6. 상태가 변경되면 react는 화면을 리렌더링한다.",
+      "img": "",
+      "comments":  [
+        {
+          "id": 1,
+          "content": "좋은 내용 감사해요~~"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "7월 지그재그 장바구니 위시 리스트",
+      "content": "더우니까 옷 사고 싶네~~ 나갈 데도 없는데",
+      "img": "https://cdn.pixabay.com/photo/2016/04/08/18/46/shopping-mall-1316787__480.jpg",
+      "comments": [
+        {
+          "id": 1,
+          "content": "소통해요~"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "title": "코드스테이츠 섹션2 회고",
+      "content": "지난 날을 돌아보며 앞으로 더 열심히 하길 다짐한다..!!!",
+      "img": "https://cdn.pixabay.com/photo/2017/07/07/06/24/rear-mirror-2480511__340.jpg",
+      "comments": [
+        {
+          "id": 1,
+          "content": "고생많았다😃 더 고생해라~"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "title": "미라클 모닝 시작",
+      "content": "아침에 일찍 일어나서 공부하니까 상쾌하고 좋다",
+      "img": "https://cdn.pixabay.com/photo/2016/11/18/14/40/balcony-1834990__340.jpg",
+      "comments": [
+        {
+          "id": 1,
+          "content": "흠 얼마나 일찍 일어난다고..."
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "title": "내가 좋아하는 떡볶이 레시피",
+      "content": "먼저 파기름을 내고 어묵을 볶는다.\n그다음 적당량의 물을 넣고 고추장과 설탕을 넣고 끓인다.\\n물이 끓어오르면 떡을 넣고 푹 졸인다.\\n맛있겠다~~~",
+      "img": "https://cdn.pixabay.com/photo/2017/09/10/14/23/toppokki-2735719__340.jpg",
+      "comments": [
+        {
+          "id": 1,
+          "content": "오늘 저녁은 이 레시피대로 먹어야겠네요~!!"
+        },
+        {
+          "id": 2,
+          "content": "맛있겠다~!"
+        }
+      ]
+    }
+  ]
+}
