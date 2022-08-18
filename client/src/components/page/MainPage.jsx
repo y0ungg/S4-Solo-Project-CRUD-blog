@@ -30,9 +30,8 @@ const DivBtn = styled.div`
   }
 `;
 
-const MainPage = (props) => {
+const MainPage = ({ data }) => {
   const navigate = useNavigate();
-  const {data, isPending, error} = props;
   
   const onClickItem = (item) => {
     const idx = data.findIndex((el) => el.title === item.title);
@@ -41,7 +40,7 @@ const MainPage = (props) => {
 
   return (
     <Main>
-      <DivBtn role="button"  onClick={() => navigate(`/write`)}>
+      <DivBtn role="button" onClick={() => navigate(`/write`)}>
         <FontAwesomeIcon icon={faPen} />
       </DivBtn>
       <PostList post={data} onClickItem={onClickItem}></PostList>

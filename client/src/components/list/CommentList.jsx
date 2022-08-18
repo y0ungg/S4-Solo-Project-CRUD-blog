@@ -1,10 +1,13 @@
 import styled from "styled-components";
+import { useParams } from 'react-router-dom';
 
 const Comments = styled.section`
 margin: 2em;
 width: 70%;
 display: flex;
 justify-content: center;
+align-items: center;
+flex-direction: column;
 `
 
 const Wrapper = styled.div`
@@ -16,10 +19,23 @@ const Wrapper = styled.div`
   justify-content: space-between;
 `;
 
-const CommentList = ({ comments }) => {
+const CommentList = ({ comments, post }) => {
+  const { postId } = useParams();
+  const copiedData = [post];
 
   const deleteEvent = (e) => {
-    
+    const commentDeleted = copiedData[0].comments.filter((v) => {
+      return v.id !== parseInt(e.target.value)
+    })
+    const newData = Object.assign({}, ...copiedData, {comments: commentDeleted})
+    const options = {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(newData),
+    };
+    fetch(`http://localhost:3001/post/${postId}`, options)
+      .then(() => window.location.reload())
+      .catch((error) => console.log("error", error));
   }
 
   return (
@@ -28,7 +44,7 @@ const CommentList = ({ comments }) => {
         return (
           <Wrapper key={v.id}>
             <div>{v.content}</div>
-            <button onClick={deleteEvent}>삭제</button>
+            <button value={v.id} onClick={deleteEvent}>삭제</button>
           </Wrapper>
         );
       })}

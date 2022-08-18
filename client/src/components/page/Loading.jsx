@@ -8,8 +8,8 @@ text-align: center;
 const Loading = () => {
     return (
         <Section>
-        <h1>Loading...</h1>
-        <LoadingSvg />
+            <h1>Loading...</h1>
+            <LoadingSvg />
         </Section>
     )
 }

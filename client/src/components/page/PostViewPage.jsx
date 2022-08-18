@@ -32,9 +32,8 @@ const TextInput = styled.input`
   }
 `;
 
-const PostViewPage = (props) => {
+const PostViewPage = ({ data }) => {
   const navigate = useNavigate();
-  const { data } = props;
   const { postId } = useParams();
   const [value, setValue] = useState("");
   const [isModifyMode, setIsModifyMode] = useState(false);
@@ -114,7 +113,7 @@ const PostViewPage = (props) => {
             <div className="post--title">{selectedPost.title}</div>
             <div className="post--content">{selectedPost.content}</div>
           </div>
-          <CommentList comments={selectedComments} />
+          <CommentList comments={selectedComments} post={selectedPost}/>
           <Form onSubmit={onSubmitHandler}>
             <TextInput
               onChange={(e) => setValue(e.target.value)}

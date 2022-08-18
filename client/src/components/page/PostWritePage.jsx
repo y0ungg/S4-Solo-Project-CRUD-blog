@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import { Navigate } from "react-router-dom";
 
 const PostWritePage = ({modifyTitle, modifyContent}) => {
   const [title, setTitle] = useState("");
@@ -15,7 +14,7 @@ const PostWritePage = ({modifyTitle, modifyContent}) => {
       setStory(modifyContent)
       setId(postId)
     }
-  }, [])
+  }, []);
 
   const onSubmitInput = (event) => {
     event.preventDefault();
@@ -23,16 +22,15 @@ const PostWritePage = ({modifyTitle, modifyContent}) => {
       const modifyPost = {
         'title': title,
         'content': story
-      }
+      };
       const options = {
         method: "PATCH",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(modifyPost)
-      }
+      };
       fetch(`http://localhost:3001/post/${id}`, options)
-      .then(res => console.log(res.text()))
-      .catch(error => console.log('error', error))
-      navigate(`/post/${id}`)
+      .then(() => navigate(`/post/${id}`))
+      .catch(error => console.log('error', error));
     }
     else {
       const newPost = {
@@ -42,16 +40,15 @@ const PostWritePage = ({modifyTitle, modifyContent}) => {
         'date': new Date().toLocaleDateString(),
         'img': '',
         'comments': []
-      }
+      };
       const options = {
         method: "POST",
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(newPost)
       };
       fetch(`http://localhost:3001/post`, options)
-      .then(res => console.log(res.text()))
-      .catch(error => console.log('error', error))
-      navigate('/')
+      .then(() => navigate('/'))
+      .catch(error => console.log('error', error));
     }
     window.location.reload()
   }

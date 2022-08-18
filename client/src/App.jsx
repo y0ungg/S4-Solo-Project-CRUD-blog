@@ -57,8 +57,8 @@ function App() {
         (
       <Routes>
         <Route path='/write' element={<PostWritePage />} />
-        <Route path="/" element={<MainPage {...{data, isPending, error}}/>} />
-        <Route path='/post/:postId' element={<PostViewPage {...{data, isPending, error}}/>} />      
+        <Route path="/" element={<MainPage data={data}/>} />
+        <Route path='/post/:postId' element={<PostViewPage data={data}/>} />      
       </Routes>)
       }
     </Suspense>

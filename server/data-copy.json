@@ -92,7 +92,16 @@
       "author": "멍멍",
       "content": "8월 중순이네요 벌써",
       "date": "2022. 8. 16",
-      "comments": [],
+      "comments": [
+        {
+          "content": "오랜만이에요!",
+          "id": 1
+        },
+        {
+          "content": "hi",
+          "id": 2
+        }
+      ],
       "img": "",
       "id": 7
     }
