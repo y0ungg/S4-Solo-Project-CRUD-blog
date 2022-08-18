@@ -56,8 +56,7 @@ const PostViewPage = ({ data }) => {
         })
       ) + 1)
     }
-  }, [])
-
+  }, []);
 
   const onSubmitHandler = (event) => {
     event.preventDefault();
@@ -73,13 +72,6 @@ const PostViewPage = ({ data }) => {
       .then((result) => console.log(result))
       .catch((error) => console.log("error", error));
     window.location.reload();
-    setMaxNum(
-      Math.max(
-        ...selectedComments.map((v) => {
-          return v.id;
-        })
-      ) + 1
-    );
   };
 
   const deleteEvent = (e) => {
