@@ -37,7 +37,10 @@ const PostWritePage = ({modifyTitle, modifyContent}) => {
     else {
       const newPost = {
         'title': title,
+        'author': '멍멍',
         'content': story,
+        'date': new Date().toLocaleDateString(),
+        'img': '',
         'comments': []
       }
       const options = {

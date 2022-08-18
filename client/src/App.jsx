@@ -6,6 +6,7 @@ import { Suspense, lazy } from 'react';
 const MainPage = lazy(()=> import("./components/page/MainPage"));
 const PostViewPage = lazy(()=> import("./components/page/PostViewPage"));
 const PostWritePage = lazy(()=> import("./components/page/PostWritePage"));
+const Loading = lazy(() => import("./components/page/Loading"))
 
 // const Nav = styled.nav`
 //   padding: 0;
@@ -18,8 +19,7 @@ const PostWritePage = lazy(()=> import("./components/page/PostWritePage"));
 //   flex-wrap: wrap;
 // `
 
-
-const Title = styled.h1`
+const Title = styled.div`
   font-family: sans-serif;
   font-style: italic;
   text-align: center;
@@ -27,6 +27,7 @@ const Title = styled.h1`
   font-size: 4rem;
   font-weight: 100;
   cursor: pointer;
+  color: #243D25;
 `
 
 const Footer = styled.footer`
@@ -34,7 +35,6 @@ const Footer = styled.footer`
   margin-top: 50px;
   padding: 10px 10px 30px 0;
   border-top: 1px solid #e1e1e1;
-  color: gray;
 `
 
 function App() {
@@ -51,9 +51,9 @@ function App() {
       <header>
         <Title onClick={onClickEvent}>Mini blog</Title>
       </header>
-      <Suspense fallback={ "loading" && error } >
+      <Suspense fallback={ <Loading /> && error } >
         {
-          isPending ? <>loading</> :
+          isPending ? <Loading /> :
         (
       <Routes>
         <Route path='/write' element={<PostWritePage />} />

@@ -9,11 +9,37 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-
-.post--title, .post--content {
-  margin: 1em;
+.post--wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  padding: 1em 0 3em 0;
+  border-radius: 10px;
+  background-color: #f7d5e3a5;
 }
 
-/* .delete-btn {
-  text-align: right;
-} */
+.info--btn--container {
+  margin-bottom: 1em;
+}
+
+.author {
+  margin: 0 1em 0 20px;
+  color: #243D25;
+  font-weight: 700;
+  font-size: 1em;
+}
+
+.date {
+  margin-right: 1em;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.post--title, .post--content {
+  margin: 20px;
+}
+
+.post--title {
+  font-size: 1.5em;
+  font-weight: bold;
+}
