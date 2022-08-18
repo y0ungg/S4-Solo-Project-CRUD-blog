@@ -23,7 +23,7 @@ const Title = styled.div`
   font-family: sans-serif;
   font-style: italic;
   text-align: center;
-  padding: 40px 0px;
+  padding: 100px 0px;
   font-size: 4rem;
   font-weight: 100;
   cursor: pointer;
