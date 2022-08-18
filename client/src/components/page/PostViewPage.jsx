@@ -1,7 +1,7 @@
 import { useParams, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import CommentList from "../list/CommentList";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "../../index.css";
 import PostWritePage from "./PostWritePage";
 
@@ -37,20 +37,27 @@ const PostViewPage = ({ data }) => {
   const { postId } = useParams();
   const [value, setValue] = useState("");
   const [isModifyMode, setIsModifyMode] = useState(false);
+  const [maxNum, setMaxNum] = useState();
 
   const selectedPost = data.find((item) => item.id === parseInt(postId));
 
   const selectedComments = data.find(
     (el) => el.id === parseInt(postId)
-  ).comments;
+  ).comments || []
 
-  const [maxNum, setMaxNum] = useState(
-    Math.max(
-      ...selectedComments.map((v) => {
-        return v.id;
-      })
-    ) + 1
-  );
+  useEffect(() => {
+    if (selectedComments.length === 0) {
+      setMaxNum(1)
+    }
+    else {
+      setMaxNum(Math.max(
+        ...selectedComments.map((v) => {
+          return v.id;
+        })
+      ) + 1)
+    }
+  }, [])
+
 
   const onSubmitHandler = (event) => {
     event.preventDefault();

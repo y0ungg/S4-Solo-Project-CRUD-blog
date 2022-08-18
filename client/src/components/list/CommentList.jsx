@@ -34,8 +34,9 @@ const CommentList = ({ comments, post }) => {
       body: JSON.stringify(newData),
     };
     fetch(`http://localhost:3001/post/${postId}`, options)
-      .then(() => window.location.reload())
+      .then((res) => res.text())
       .catch((error) => console.log("error", error));
+    window.location.reload();
   }
 
   return (
